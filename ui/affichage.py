@@ -1,30 +1,24 @@
-"""Éléments d'affichage communs : en-tête de page, étapes pas à pas, tableaux, encadrés."""
+"""Éléments d'affichage communs : en-tête de page, étapes pas à pas, tableaux, notes."""
 
 from __future__ import annotations
 
-from collections.abc import Iterable, Sequence
+from collections.abc import Sequence
 
 import numpy as np
 import pandas as pd
 import streamlit as st
 
 
-def entete(titre: str, categorie: str, pages_cours: str, resume: str | None = None) -> None:
-    """Titre de la page, catégorie et pages du cours correspondantes."""
+def entete(titre: str, categorie: str, resume: str | None = None) -> None:
     st.title(titre)
-    st.caption(f"{categorie} · Cours, p. {pages_cours}")
+    st.caption(categorie)
     if resume:
         st.write(resume)
 
 
-def encadre_ecart(identifiant: str, texte: str) -> None:
-    """Signale un écart, une ambiguïté ou une coquille du cours (voir PLAN.md §1.5)."""
-    st.warning(f"**Écart avec le cours ({identifiant})** — {texte}", icon=":material/info:")
-
-
-def en_construction(jalon: str, contenu_prevu: Iterable[str]) -> None:
-    st.info(f"Page en construction — prévue au jalon **{jalon}** de PLAN.md.")
-    st.markdown("\n".join(f"- {ligne}" for ligne in contenu_prevu))
+def note(texte: str) -> None:
+    """Remarque courte : écart ou précision par rapport à la formule imprimée dans le cours."""
+    st.caption(f"ℹ️ {texte}")
 
 
 def etape(titre: str, ouverte: bool = False):
@@ -32,25 +26,20 @@ def etape(titre: str, ouverte: bool = False):
     return st.expander(titre, expanded=ouverte)
 
 
-def matrice(M, lignes: Sequence[str], colonnes: Sequence[str], decimales: int = 4, legende: str | None = None) -> None:
-    """Affiche une matrice numérique avec ses étiquettes."""
-    df = pd.DataFrame(np.round(np.asarray(M, float), decimales), index=list(lignes), columns=list(colonnes))
-    st.dataframe(df)
-    if legende:
-        st.caption(legende)
+def matrice(M, lignes: Sequence[str], colonnes: Sequence[str], decimales: int = 4) -> None:
+    st.dataframe(pd.DataFrame(np.round(np.asarray(M, float), decimales), index=list(lignes), columns=list(colonnes)))
 
 
 def vecteur(v, etiquettes: Sequence[str], nom: str, decimales: int = 4) -> None:
-    df = pd.DataFrame({nom: np.round(np.asarray(v, float), decimales)}, index=list(etiquettes)).T
-    st.dataframe(df)
+    st.dataframe(pd.DataFrame({nom: np.round(np.asarray(v, float), decimales)}, index=list(etiquettes)).T)
 
 
-def classement(alternatives: Sequence[str], colonnes: dict, rangs, cle_tri: str = "Rang", decimales: int = 4) -> pd.DataFrame:
+def classement(alternatives: Sequence[str], colonnes: dict, rangs, decimales: int = 4) -> pd.DataFrame:
     """Tableau final trié par rang : colonnes = {nom: valeurs}."""
     df = pd.DataFrame({"Alternative": list(alternatives),
                        **{k: np.round(np.asarray(v, float), decimales) for k, v in colonnes.items()},
                        "Rang": np.asarray(rangs, int)})
-    df = df.sort_values([cle_tri, "Alternative"]).reset_index(drop=True)
+    df = df.sort_values(["Rang", "Alternative"]).reset_index(drop=True)
     st.dataframe(df, hide_index=True)
     return df
 

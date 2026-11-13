@@ -76,11 +76,10 @@ def vikor(X, sens, w, v: float = 0.5) -> VikorResultat:
     elif not c1:
         compromis = tuple(int(k) for k in ordre if Q[k] - Q[a1] < DQ - _TOL)
         expl = ("L'avantage acceptable n'est pas vérifié : l'ensemble de compromis contient toutes les "
-                "alternatives A^k telles que Q(A^k) − Q(A') < 1/(m − 1) (p. 71).")
+                "alternatives A^k telles que Q(A^k) − Q(A') < 1/(m − 1).")
     else:
         compromis = (a1, a2)
-        expl = ("Seule la stabilité acceptable n'est pas vérifiée : les solutions de compromis sont A' et A'' "
-                "(p. 71).")
+        expl = "Seule la stabilité acceptable n'est pas vérifiée : les solutions de compromis sont A' et A''."
     return VikorResultat(meilleures, pires, termes, S, R, float(S_et), float(S_mo), float(R_et), float(R_mo),
                          float(v), Q, rangs(S, False), rangs(R, False), rangs(Q, False), ordre, DQ, avantage,
                          bool(c1), c2, compromis, expl)

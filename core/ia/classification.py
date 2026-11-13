@@ -24,7 +24,7 @@ def scores_wsm_reference(X, sens, w, reference=None) -> np.ndarray:
     s = verifier_sens(sens, X.shape[1])
     w = verifier_poids(w, X.shape[1])
     if np.any(X <= 0) or np.any(ref <= 0):
-        raise ErreurMethode("la normalisation linéaire du cours (p. 55) suppose des valeurs strictement positives")
+        raise ErreurMethode("la normalisation linéaire suppose des valeurs strictement positives")
     R = np.where(s > 0, X / ref.max(axis=0), ref.min(axis=0) / X)
     return R @ w
 

@@ -53,8 +53,17 @@ def test_page_avec_chaque_jeu_de_donnees(page):
 
 def _textes(at: AppTest) -> str:
     morceaux = [m.value for m in at.markdown] + [s.value for s in at.success] + [w.value for w in at.warning]
-    morceaux += [str(m.value) for m in at.metric]
+    morceaux += [str(m.value) for m in at.metric] + [c.value for c in at.caption]
     return "\n".join(morceaux)
+
+
+def test_aucun_numero_de_page_affiche():
+    for page in PAGES:
+        if page.name == "accueil.py":
+            at = AppTest.from_file(str(RACINE / "streamlit_app.py"), default_timeout=DELAI).run()
+        else:
+            at = _lancer(page)
+        assert not re.search(r"\bp\. ?\d", _textes(at) + " ".join(t.value for t in at.title)), page.name
 
 
 def test_ahp_affiche_le_cr_de_l_exercice():
@@ -63,9 +72,9 @@ def test_ahp_affiche_le_cr_de_l_exercice():
     assert "Voiture 1" in _textes(at)
 
 
-def test_bwm_affiche_l_ecart_e1():
+def test_bwm_affiche_xi_et_l_ecart_avec_les_poids_imprimes():
     at = _lancer(RACINE / "pages" / "ponderation_bwm.py")
-    assert "E-1" in _textes(at) and "0.0838" in _textes(at)
+    assert "0.0838" in _textes(at) and "0.552" in _textes(at)
 
 
 def test_vikor_designe_a2():

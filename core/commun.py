@@ -45,7 +45,7 @@ def normalisation_lineaire(X, sens) -> np.ndarray:
     X = tableau(X)
     s = verifier_sens(sens, X.shape[1])
     if np.any(X <= 0):
-        raise ErreurMethode("la normalisation linéaire du cours (p. 55) suppose des valeurs strictement positives")
+        raise ErreurMethode("la normalisation linéaire suppose des valeurs strictement positives")
     return np.where(s > 0, X / X.max(axis=0), X.min(axis=0) / X)
 
 
@@ -73,9 +73,9 @@ def normalisation_vectorielle(X) -> np.ndarray:
 
 
 NORMALISATIONS = {
-    "lineaire": "linéaire (p. 55)",
-    "min-max": "min-max (p. 47)",
-    "vectorielle": "vectorielle (p. 62)",
+    "lineaire": "linéaire",
+    "min-max": "min-max",
+    "vectorielle": "vectorielle",
 }
 
 

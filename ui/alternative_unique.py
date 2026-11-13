@@ -1,4 +1,4 @@
-"""Éditeur partagé du dossier unique (critère, sens, unité, poids, valeur, bornes) — pages MAUT et distance à l'idéal."""
+"""Éditeur du dossier unique (critère, sens, unité, poids, valeur, bornes de référence)."""
 
 from __future__ import annotations
 
@@ -24,9 +24,8 @@ class Dossier:
 
 
 def editeur_dossier(cle: str, identifiant: str = "D5_credit") -> Dossier | None:
-    table = editeur_tableau(cle, charger_tableau(identifiant, "dossier"), titre="Alternative à évaluer et bornes de référence",
+    table = editeur_tableau(cle, charger_tableau(identifiant, "dossier"), nom_fichier="dossier.csv",
                             colonnes_attendues=["critere", "sens", "unite", "poids", "valeur", "x_min", "x_max"],
-                            nom_fichier="dossier.csv",
                             column_config={"sens": st.column_config.SelectboxColumn("sens", options=["+", "-"]),
                                            "poids": st.column_config.NumberColumn("poids", min_value=0.0, format="%.3f")})
     try:
@@ -42,6 +41,4 @@ def editeur_dossier(cle: str, identifiant: str = "D5_credit") -> Dossier | None:
     if abs(dossier.poids.sum() - 1) > 1e-3:
         st.error(f"La somme des poids vaut {dossier.poids.sum():.4f} au lieu de 1.")
         return None
-    st.caption("Les bornes x_min et x_max sont des références fixées par la politique (experts, réglementation, "
-               "objectifs stratégiques) : le cours ne les précise pas (E-31).")
     return dossier

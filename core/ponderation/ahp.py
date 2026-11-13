@@ -43,7 +43,7 @@ def poids_ahp(A) -> AhpPoids:
         raise ErreurMethode("la matrice de comparaison doit être carrée, d'ordre au moins 2")
     n = A.shape[0]
     if n > 10:
-        raise ErreurMethode("la table RI du cours (p. 29) s'arrête à n = 10")
+        raise ErreurMethode("la table RI du cours s'arrête à n = 10")
     if not np.all(np.isfinite(A)) or np.any(A <= 0):
         raise ErreurMethode("les jugements doivent être strictement positifs")
     if np.any(np.abs(np.diag(A) - 1) > 1e-12):

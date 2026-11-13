@@ -29,8 +29,7 @@ SECTIONS = {
         ("pages/robustesse_chainage.py", "Chaînage pondération → classement", ":material/link:"),
     ],
     "Alternative unique": [
-        ("pages/unique_maut_seuil.py", "MAUT et seuil de décision", ":material/rule:"),
-        ("pages/unique_distance_ideal.py", "Distance à l'idéal", ":material/straighten:"),
+        ("pages/unique_maut_seuil.py", "MAUT, seuil, distance à l'idéal", ":material/rule:"),
     ],
     "MCDM et IA": [
         ("pages/ia_classification.py", "De MCDM à la classification", ":material/category:"),

@@ -164,7 +164,7 @@
       "origine": "créé",
       "pages_cours": "14",
       "type": "matrice",
-      "contexte": "Les 5 modèles et les 6 critères cités p. 14, mesurés par validation croisée (5 plis) sur le jeu Breast Cancer Wisconsin inclus dans scikit-learn.",
+      "contexte": "Les 5 modèles et les 6 critères cités dans le cours, mesurés par validation croisée (5 plis) sur le jeu Breast Cancer Wisconsin inclus dans scikit-learn.",
       "fichiers": {"matrice": "crees/selection_modele_ml.csv"},
       "notes": "Critères très corrélés entre eux et écarts faibles entre modèles. Généré par scripts/generer_datasets.py (graine 42)."
     },
@@ -174,7 +174,7 @@
       "origine": "créé",
       "pages_cours": "4, 37",
       "type": "matrice",
-      "contexte": "Industrie : quel fournisseur retenir parmi 5 offres ? Mêmes critères que l'exemple BWM de la p. 37.",
+      "contexte": "Industrie : quel fournisseur retenir parmi 5 offres ? Mêmes critères que l'exemple BWM du cours.",
       "fichiers": {"matrice": "crees/fournisseurs_5offres.csv"},
       "notes": "Construit pour que la pondération et la méthode changent la meilleure alternative."
     },
@@ -251,7 +251,7 @@
       "origine": "créé",
       "pages_cours": "152–154",
       "type": "cv",
-      "contexte": "Cinq extraits de CV fictifs (dont celui de la p. 154) notés sur trois critères avec justification.",
+      "contexte": "Cinq extraits de CV fictifs (dont celui de l'exemple du cours) notés sur trois critères avec justification.",
       "fichiers": {"tableau": "crees/llm_cv_corpus.csv"},
       "notes": "Scores simulés selon une rubrique explicite : aucun appel à un LLM."
     }
