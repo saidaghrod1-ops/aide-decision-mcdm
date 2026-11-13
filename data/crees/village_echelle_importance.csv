@@ -1,0 +1,6 @@
+terme,code,mu,nu
+Très important,TI,0.9,0.05
+Important,I,0.75,0.2
+Moyen,M,0.5,0.4
+Peu important,PI,0.3,0.6
+Très peu important,TPI,0.1,0.85

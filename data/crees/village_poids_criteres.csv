@@ -1,0 +1,13 @@
+decideur,critere,terme
+Ingénieur,C1 Coût d'investissement,I
+Ingénieur,C2 Fiabilité,TI
+Ingénieur,C3 Impact environnemental,M
+Ingénieur,C4 Acceptabilité sociale,M
+Économiste,C1 Coût d'investissement,TI
+Économiste,C2 Fiabilité,I
+Économiste,C3 Impact environnemental,M
+Économiste,C4 Acceptabilité sociale,PI
+Élu local,C1 Coût d'investissement,I
+Élu local,C2 Fiabilité,I
+Élu local,C3 Impact environnemental,I
+Élu local,C4 Acceptabilité sociale,TI

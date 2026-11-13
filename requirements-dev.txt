@@ -1,0 +1,4 @@
+-r requirements.txt
+pytest==9.0.3
+# Uniquement pour scripts/generer_datasets.py (dataset D1) ; l'application n'en dépend pas.
+xgboost==3.4.1

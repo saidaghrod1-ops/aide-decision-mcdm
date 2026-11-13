@@ -1,0 +1,6 @@
+alternative,C1 Épaisseur maximale de la pièce,C2 Largeur de coupe minimale,C3 Qualité de découpe,C4 Coût de maintenance
+@sens,-,-,+,-
+A1,30,0.100,1,20
+A2,100,0.700,1,40
+A3,50,1,2,10
+A4,300,2,3,35

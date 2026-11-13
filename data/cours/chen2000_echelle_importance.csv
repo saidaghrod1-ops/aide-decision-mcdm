@@ -1,0 +1,8 @@
+terme,code,a,b,c
+Very low,VL,0,0,0.1
+Low,L,0,0.1,0.3
+Medium low,ML,0.1,0.3,0.5
+Medium,M,0.3,0.5,0.7
+Medium high,MH,0.5,0.7,0.9
+High,H,0.7,0.9,1
+Very high,VH,0.9,1,1

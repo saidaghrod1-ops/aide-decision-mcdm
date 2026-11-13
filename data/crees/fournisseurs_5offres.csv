@@ -1,0 +1,8 @@
+alternative,C1 Qualité,C2 Prix,C3 Délai de livraison,C4 Engagement RSE
+@sens,+,-,-,+
+@unite,/10,DH/unité,jours,/100
+F1 Premium,9.2,145,12,70
+F2 Low-cost,6.1,98,20,45
+F3 Équilibré,8,118,9,62
+F4 Express,7.2,125,4,55
+F5 Responsable,7.6,130,14,92

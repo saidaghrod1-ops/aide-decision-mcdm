@@ -1,0 +1,46 @@
+alternative,decideur,critere,terme
+A1,DM1,C1 Stabilité émotionnelle,MG
+A1,DM1,C2 Communication orale,G
+A1,DM1,C3 Personnalité,F
+A1,DM1,C4 Expérience passée,VG
+A1,DM1,C5 Confiance en soi,F
+A1,DM2,C1 Stabilité émotionnelle,G
+A1,DM2,C2 Communication orale,MG
+A1,DM2,C3 Personnalité,G
+A1,DM2,C4 Expérience passée,G
+A1,DM2,C5 Confiance en soi,F
+A1,DM3,C1 Stabilité émotionnelle,MG
+A1,DM3,C2 Communication orale,F
+A1,DM3,C3 Personnalité,G
+A1,DM3,C4 Expérience passée,VG
+A1,DM3,C5 Confiance en soi,F
+A2,DM1,C1 Stabilité émotionnelle,G
+A2,DM1,C2 Communication orale,VG
+A2,DM1,C3 Personnalité,VG
+A2,DM1,C4 Expérience passée,VG
+A2,DM1,C5 Confiance en soi,VG
+A2,DM2,C1 Stabilité émotionnelle,G
+A2,DM2,C2 Communication orale,VG
+A2,DM2,C3 Personnalité,VG
+A2,DM2,C4 Expérience passée,VG
+A2,DM2,C5 Confiance en soi,MG
+A2,DM3,C1 Stabilité émotionnelle,MG
+A2,DM3,C2 Communication orale,VG
+A2,DM3,C3 Personnalité,G
+A2,DM3,C4 Expérience passée,VG
+A2,DM3,C5 Confiance en soi,G
+A3,DM1,C1 Stabilité émotionnelle,VG
+A3,DM1,C2 Communication orale,MG
+A3,DM1,C3 Personnalité,G
+A3,DM1,C4 Expérience passée,G
+A3,DM1,C5 Confiance en soi,G
+A3,DM2,C1 Stabilité émotionnelle,G
+A3,DM2,C2 Communication orale,G
+A3,DM2,C3 Personnalité,MG
+A3,DM2,C4 Expérience passée,VG
+A3,DM2,C5 Confiance en soi,G
+A3,DM3,C1 Stabilité émotionnelle,F
+A3,DM3,C2 Communication orale,VG
+A3,DM3,C3 Personnalité,VG
+A3,DM3,C4 Expérience passée,MG
+A3,DM3,C5 Confiance en soi,MG

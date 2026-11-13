@@ -1,0 +1,62 @@
+{
+  "adulte_crisp": {
+    "page": 97,
+    "description": "Logique booléenne : une personne est adulte (100 %) ou mineure (100 %), seuil 18 ans.",
+    "seuil_age": 18
+  },
+  "age": {
+    "page": 104,
+    "description": "Ensembles flous de l'âge. « Âge moyen » est défini par la formule du cours ; « jeune » et « âgé » sont lus sur la figure de la même page.",
+    "univers": [0, 100],
+    "ensembles": {
+      "Jeune": {"type": "trapezoidale", "parametres": [0, 0, 25, 35]},
+      "Âge moyen": {"type": "trapezoidale", "parametres": [25, 35, 55, 65]},
+      "Âgé": {"type": "trapezoidale", "parametres": [55, 65, 100, 100]}
+    },
+    "verifications_cours": {"Âge moyen": {"45": 1.0, "30": 0.5}, "Jeune": {"30": 0.5}}
+  },
+  "average": {
+    "page": 106,
+    "description": "Ensemble flou triangulaire « Average » avec noyau, hauteur, support et 0,5-coupe.",
+    "univers": [0, 30],
+    "type": "triangulaire",
+    "parametres": [10, 15, 20],
+    "resultats_cours": {"noyau": [15], "hauteur": 1, "support": "]10, 20[", "coupe_0_5": [12.5, 17.5]}
+  },
+  "pourboire": {
+    "page": 107,
+    "description": "Variable linguistique (V, X, T_V) : V = pourboire, X = R+, T_V = {faible, moyen, élevé}.",
+    "univers": [0, 30],
+    "ensembles": {
+      "faible": {"type": "triangulaire", "parametres": [0, 5, 10]},
+      "moyen": {"type": "triangulaire", "parametres": [10, 15, 20]},
+      "élevé": {"type": "triangulaire", "parametres": [20, 25, 30]}
+    }
+  },
+  "moyenne_etudiant": {
+    "page": 108,
+    "description": "Le nombre flou trapézoïdal N(4, 5, 6, 7) peut décrire la mention « moyenne » d'un étudiant.",
+    "type": "trapezoidal",
+    "parametres": [4, 5, 6, 7]
+  },
+  "vote_intuitionniste": {
+    "page": 112,
+    "description": "10 personnes votent : 5 pour, 3 contre, 2 absents.",
+    "pour": 5,
+    "contre": 3,
+    "absents": 2,
+    "resultats_cours": {"mu": 0.5, "nu": 0.3, "pi": 0.2}
+  },
+  "nombre_intuitionniste": {
+    "page": 114,
+    "description": "α = (0,6 ; 0,3) : 60 % en faveur, 30 % contre, 10 % n'ont pas voté.",
+    "mu": 0.6,
+    "nu": 0.3,
+    "resultats_cours": {"pi": 0.1}
+  },
+  "hesitant_element": {
+    "page": 126,
+    "description": "h_A(x1) = {0,2 ; 0,4 ; 0,5}.",
+    "valeurs": [0.2, 0.4, 0.5]
+  }
+}

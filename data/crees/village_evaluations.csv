@@ -1,0 +1,49 @@
+alternative,decideur,critere,terme
+A1 Solaire PV + stockage,Ingénieur,C1 Coût d'investissement,ME
+A1 Solaire PV + stockage,Économiste,C1 Coût d'investissement,E
+A1 Solaire PV + stockage,Élu local,C1 Coût d'investissement,ME
+A1 Solaire PV + stockage,Ingénieur,C2 Fiabilité,ME
+A1 Solaire PV + stockage,Économiste,C2 Fiabilité,M
+A1 Solaire PV + stockage,Élu local,C2 Fiabilité,ME
+A1 Solaire PV + stockage,Ingénieur,C3 Impact environnemental,F
+A1 Solaire PV + stockage,Économiste,C3 Impact environnemental,F
+A1 Solaire PV + stockage,Élu local,C3 Impact environnemental,TF
+A1 Solaire PV + stockage,Ingénieur,C4 Acceptabilité sociale,E
+A1 Solaire PV + stockage,Économiste,C4 Acceptabilité sociale,E
+A1 Solaire PV + stockage,Élu local,C4 Acceptabilité sociale,TE
+A2 Éolien,Ingénieur,C1 Coût d'investissement,E
+A2 Éolien,Économiste,C1 Coût d'investissement,E
+A2 Éolien,Élu local,C1 Coût d'investissement,E
+A2 Éolien,Ingénieur,C2 Fiabilité,M
+A2 Éolien,Économiste,C2 Fiabilité,MF
+A2 Éolien,Élu local,C2 Fiabilité,M
+A2 Éolien,Ingénieur,C3 Impact environnemental,MF
+A2 Éolien,Économiste,C3 Impact environnemental,M
+A2 Éolien,Élu local,C3 Impact environnemental,ME
+A2 Éolien,Ingénieur,C4 Acceptabilité sociale,M
+A2 Éolien,Économiste,C4 Acceptabilité sociale,MF
+A2 Éolien,Élu local,C4 Acceptabilité sociale,MF
+A3 Hybride PV-éolien,Ingénieur,C1 Coût d'investissement,TE
+A3 Hybride PV-éolien,Économiste,C1 Coût d'investissement,E
+A3 Hybride PV-éolien,Élu local,C1 Coût d'investissement,TE
+A3 Hybride PV-éolien,Ingénieur,C2 Fiabilité,E
+A3 Hybride PV-éolien,Économiste,C2 Fiabilité,E
+A3 Hybride PV-éolien,Élu local,C2 Fiabilité,TE
+A3 Hybride PV-éolien,Ingénieur,C3 Impact environnemental,F
+A3 Hybride PV-éolien,Économiste,C3 Impact environnemental,MF
+A3 Hybride PV-éolien,Élu local,C3 Impact environnemental,F
+A3 Hybride PV-éolien,Ingénieur,C4 Acceptabilité sociale,E
+A3 Hybride PV-éolien,Économiste,C4 Acceptabilité sociale,ME
+A3 Hybride PV-éolien,Élu local,C4 Acceptabilité sociale,E
+A4 Extension du réseau,Ingénieur,C1 Coût d'investissement,M
+A4 Extension du réseau,Économiste,C1 Coût d'investissement,ME
+A4 Extension du réseau,Élu local,C1 Coût d'investissement,M
+A4 Extension du réseau,Ingénieur,C2 Fiabilité,TE
+A4 Extension du réseau,Économiste,C2 Fiabilité,E
+A4 Extension du réseau,Élu local,C2 Fiabilité,E
+A4 Extension du réseau,Ingénieur,C3 Impact environnemental,ME
+A4 Extension du réseau,Économiste,C3 Impact environnemental,E
+A4 Extension du réseau,Élu local,C3 Impact environnemental,ME
+A4 Extension du réseau,Ingénieur,C4 Acceptabilité sociale,ME
+A4 Extension du réseau,Économiste,C4 Acceptabilité sociale,E
+A4 Extension du réseau,Élu local,C4 Acceptabilité sociale,ME

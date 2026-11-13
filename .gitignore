@@ -1,0 +1,18 @@
+# Support de cours : non publié (droits d'auteur)
+*.pdf
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Système / éditeurs
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
