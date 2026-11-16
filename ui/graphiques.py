@@ -185,7 +185,7 @@ def nombres_flous(series: dict, titre: str | None = None, axe_x: str | None = No
 
 
 def plan_mu_nu(points: dict, frontieres: dict | None = None, titre: str | None = None) -> go.Figure:
-    """Plan (μ, ν) avec frontières μ^q + ν^q = 1 (figure p. 120)."""
+    """Plan (μ, ν) avec frontières μ^q + ν^q = 1."""
     fig = go.Figure()
     for i, (nom, (mus, nus)) in enumerate((frontieres or {}).items()):
         fig.add_trace(go.Scatter(x=mus, y=nus, name=nom, mode="lines", line=dict(color=couleur(i), width=2),
