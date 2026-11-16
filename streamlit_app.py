@@ -31,12 +31,6 @@ SECTIONS = {
     "Alternative unique": [
         ("pages/unique_maut_seuil.py", "MAUT, seuil, distance à l'idéal", ":material/rule:"),
     ],
-    "MCDM et IA": [
-        ("pages/ia_classification.py", "De MCDM à la classification", ":material/category:"),
-        ("pages/ia_xai_shap.py", "XAI (SHAP) et pondération", ":material/insights:"),
-        ("pages/ia_dynamique.py", "MCDM dynamique", ":material/timeline:"),
-        ("pages/ia_llm.py", "LLM extracteur de scores", ":material/description:"),
-    ],
     "Logique floue": [
         ("pages/flou_ensembles.py", "Ensembles flous", ":material/blur_on:"),
         ("pages/flou_nombres.py", "Nombres flous et intervalles", ":material/change_history:"),

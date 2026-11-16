@@ -25,10 +25,20 @@
       "pages_cours": "37–43",
       "type": "bwm",
       "contexte": "Quatre critères : qualité, prix, délai de livraison, engagement RSE.",
-      "fichiers": {"vecteurs": "cours/bwm_fournisseur.csv"},
+      "fichiers": {
+        "vecteurs": "cours/bwm_fournisseur.csv"
+      },
       "best": "C1 Qualité",
       "worst": "C4 Engagement RSE",
-      "resultats_cours": {"poids": [0.552, 0.207, 0.155, 0.086], "xi": 0.08},
+      "resultats_cours": {
+        "poids": [
+          0.552,
+          0.207,
+          0.155,
+          0.086
+        ],
+        "xi": 0.08
+      },
       "notes": "Les poids imprimés p. 42 ne se reproduisent pas avec le modèle linéaire du cours (écart E-1 de PLAN.md)."
     },
     {
@@ -38,7 +48,9 @@
       "pages_cours": "51",
       "type": "matrice",
       "contexte": "Quatre machines de découpage évaluées sur quatre critères.",
-      "fichiers": {"matrice": "cours/critic_machines_decoupe.csv"},
+      "fichiers": {
+        "matrice": "cours/critic_machines_decoupe.csv"
+      },
       "notes": "C1 « épaisseur maximale » est noté − dans le cours (conservé, voir E-25)."
     },
     {
@@ -48,7 +60,9 @@
       "pages_cours": "58",
       "type": "matrice",
       "contexte": "Quatre machines, cinq critères, poids donnés par le cours.",
-      "fichiers": {"matrice": "cours/waspas_machines.csv"}
+      "fichiers": {
+        "matrice": "cours/waspas_machines.csv"
+      }
     },
     {
       "id": "C5_topsis_voitures",
@@ -57,7 +71,9 @@
       "pages_cours": "65",
       "type": "matrice",
       "contexte": "Quatre marques : style (+), fiabilité (+), économie de carburant (+), coût (−).",
-      "fichiers": {"matrice": "cours/topsis_voitures.csv"}
+      "fichiers": {
+        "matrice": "cours/topsis_voitures.csv"
+      }
     },
     {
       "id": "C6_vikor_machines",
@@ -66,7 +82,9 @@
       "pages_cours": "72",
       "type": "matrice",
       "contexte": "Trois machines, deux critères de même poids.",
-      "fichiers": {"matrice": "cours/vikor_machines.csv"}
+      "fichiers": {
+        "matrice": "cours/vikor_machines.csv"
+      }
     },
     {
       "id": "C7_spearman_rangs",
@@ -75,8 +93,15 @@
       "pages_cours": "78–79",
       "type": "rangs",
       "contexte": "Rangs (1 = la meilleure) donnés par TOPSIS, VIKOR et PROMETHEE II.",
-      "fichiers": {"rangs": "cours/spearman_rangs.csv"},
-      "resultats_cours": {"TOPSIS-VIKOR": 0.77, "TOPSIS-PROMETHEE II": 0.94, "VIKOR-PROMETHEE II": 0.60, "seuil_n6_5pct": 0.886},
+      "fichiers": {
+        "rangs": "cours/spearman_rangs.csv"
+      },
+      "resultats_cours": {
+        "TOPSIS-VIKOR": 0.77,
+        "TOPSIS-PROMETHEE II": 0.94,
+        "VIKOR-PROMETHEE II": 0.6,
+        "seuil_n6_5pct": 0.886
+      },
       "notes": "Les rangs PROMETHEE II sont des données du cours ; la méthode PROMETHEE n'est pas traitée dans le cours ni dans l'application."
     },
     {
@@ -86,12 +111,32 @@
       "pages_cours": "85–88",
       "type": "scores_decisions",
       "contexte": "Scores MAUT et décisions réelles de 6 alternatives passées.",
-      "fichiers": {"tableau": "cours/decisions_passees_6.csv"},
+      "fichiers": {
+        "tableau": "cours/decisions_passees_6.csv"
+      },
       "resultats_cours": {
         "cas": [
-          {"tau": 0.75, "TPR": 0.67, "FPR": 0.00, "d": 0.33, "J": 0.67},
-          {"tau": 0.65, "TPR": 1.00, "FPR": 0.33, "d": 0.33, "J": 0.67},
-          {"tau": 0.60, "TPR": 1.00, "FPR": 0.67, "d": 0.67, "J": 0.33}
+          {
+            "tau": 0.75,
+            "TPR": 0.67,
+            "FPR": 0.0,
+            "d": 0.33,
+            "J": 0.67
+          },
+          {
+            "tau": 0.65,
+            "TPR": 1.0,
+            "FPR": 0.33,
+            "d": 0.33,
+            "J": 0.67
+          },
+          {
+            "tau": 0.6,
+            "TPR": 1.0,
+            "FPR": 0.67,
+            "d": 0.67,
+            "J": 0.33
+          }
         ]
       }
     },
@@ -102,8 +147,18 @@
       "pages_cours": "134",
       "type": "flou_triangulaire",
       "contexte": "ROA et liquidité exprimés en nombres flous triangulaires (pessimiste, plus probable, optimiste).",
-      "fichiers": {"tableau": "cours/flou_alternative_unique.csv"},
-      "resultats_cours": {"S_flou": [0.74, 0.85, 1.00], "S": 0.86, "largeur": 0.26}
+      "fichiers": {
+        "tableau": "cours/flou_alternative_unique.csv"
+      },
+      "resultats_cours": {
+        "S_flou": [
+          0.74,
+          0.85,
+          1.0
+        ],
+        "S": 0.86,
+        "largeur": 0.26
+      }
     },
     {
       "id": "C10_chen2000_recrutement",
@@ -118,7 +173,13 @@
         "evaluations": "cours/chen2000_evaluations.csv",
         "poids": "cours/chen2000_poids.csv"
       },
-      "sens": {"C1 Stabilité émotionnelle": "+", "C2 Communication orale": "+", "C3 Personnalité": "+", "C4 Expérience passée": "+", "C5 Confiance en soi": "+"}
+      "sens": {
+        "C1 Stabilité émotionnelle": "+",
+        "C2 Communication orale": "+",
+        "C3 Personnalité": "+",
+        "C4 Expérience passée": "+",
+        "C5 Confiance en soi": "+"
+      }
     },
     {
       "id": "C11_hesitants_p129",
@@ -127,7 +188,9 @@
       "pages_cours": "129",
       "type": "hesitant",
       "contexte": "Comparer h1, h2 et h3 à l'aide du score et de la déviation.",
-      "fichiers": {"tableau": "cours/hesitants_p129.csv"}
+      "fichiers": {
+        "tableau": "cours/hesitants_p129.csv"
+      }
     },
     {
       "id": "C12_portefeuille_vukovic2020",
@@ -136,18 +199,10 @@
       "pages_cours": "18",
       "type": "matrice",
       "contexte": "Sélection d'actions selon neuf critères financiers ; poids publiés par la source.",
-      "fichiers": {"matrice": "cours/portefeuille_vukovic2020.csv"},
+      "fichiers": {
+        "matrice": "cours/portefeuille_vukovic2020.csv"
+      },
       "notes": "Valeurs négatives (rendement, EPS, ROE, ROA) et valeur extrême (ROE = −303,61) : WPM, WASPAS et l'entropie ne s'appliquent pas tels quels. Origine des poids non expliquée (E-14)."
-    },
-    {
-      "id": "C13_dynamique_prevision",
-      "titre": "MCDM dynamique — Prévisions à t+1",
-      "origine": "cours",
-      "pages_cours": "94",
-      "type": "matrice",
-      "contexte": "Prévisions du rendement, de la volatilité et de la liquidité de trois actions.",
-      "fichiers": {"matrice": "cours/dynamique_prevision.csv"},
-      "notes": "Le cours ne donne ni poids ni méthode de classement : poids égaux par défaut (E-19)."
     },
     {
       "id": "C14_ensembles_flous_exemples",
@@ -156,7 +211,9 @@
       "pages_cours": "97, 104, 106–108, 112, 114, 126",
       "type": "ensembles_flous",
       "contexte": "Âge, « Average », pourboire, N(4, 5, 6, 7), votes intuitionnistes, élément hésitant.",
-      "fichiers": {"json": "cours/ensembles_flous_exemples.json"}
+      "fichiers": {
+        "json": "cours/ensembles_flous_exemples.json"
+      }
     },
     {
       "id": "D1_selection_modele_ml",
@@ -165,7 +222,9 @@
       "pages_cours": "14",
       "type": "matrice",
       "contexte": "Les 5 modèles et les 6 critères cités dans le cours, mesurés par validation croisée (5 plis) sur le jeu Breast Cancer Wisconsin inclus dans scikit-learn.",
-      "fichiers": {"matrice": "crees/selection_modele_ml.csv"},
+      "fichiers": {
+        "matrice": "crees/selection_modele_ml.csv"
+      },
       "notes": "Critères très corrélés entre eux et écarts faibles entre modèles. Généré par scripts/generer_datasets.py (graine 42)."
     },
     {
@@ -175,7 +234,9 @@
       "pages_cours": "4, 37",
       "type": "matrice",
       "contexte": "Industrie : quel fournisseur retenir parmi 5 offres ? Mêmes critères que l'exemple BWM du cours.",
-      "fichiers": {"matrice": "crees/fournisseurs_5offres.csv"},
+      "fichiers": {
+        "matrice": "crees/fournisseurs_5offres.csv"
+      },
       "notes": "Construit pour que la pondération et la méthode changent la meilleure alternative."
     },
     {
@@ -221,39 +282,10 @@
       "origine": "créé",
       "pages_cours": "81–89",
       "type": "alternative_unique",
-      "contexte": "Un dossier de crédit à évaluer seul, et un historique de 200 dossiers dont la décision est connue.",
-      "fichiers": {"dossier": "crees/credit_dossier.csv", "historique": "crees/credit_historique.csv"},
-      "notes": "Historique synthétique (graine 2026) : décision tirée d'un modèle logistique bruité sur le score MAUT."
-    },
-    {
-      "id": "D6_fournisseurs_historique",
-      "titre": "Historique de 300 fournisseurs",
-      "origine": "créé",
-      "pages_cours": "91–92",
-      "type": "matrice",
-      "contexte": "Base d'apprentissage pour les scénarios « MCDM → classification » et « SHAP comme pondération ».",
-      "fichiers": {"matrice": "crees/fournisseurs_historique.csv"},
-      "notes": "Synthétique (graine 91) ; qualité et prix corrélés positivement."
-    },
-    {
-      "id": "D7_dynamique_series",
-      "titre": "Séries temporelles de 3 actions",
-      "origine": "créé",
-      "pages_cours": "93–94",
-      "type": "series",
-      "contexte": "60 mois de rendement, volatilité et liquidité pour les actions tech, énergie et bancaire.",
-      "fichiers": {"series": "crees/dynamique_series.csv"},
-      "notes": "Processus AR(1) (graine 94) centrés sur les valeurs du tableau de la p. 94."
-    },
-    {
-      "id": "D8_llm_cv_corpus",
-      "titre": "Scores extraits de 5 CV",
-      "origine": "créé",
-      "pages_cours": "152–154",
-      "type": "cv",
-      "contexte": "Cinq extraits de CV fictifs (dont celui de l'exemple du cours) notés sur trois critères avec justification.",
-      "fichiers": {"tableau": "crees/llm_cv_corpus.csv"},
-      "notes": "Scores simulés selon une rubrique explicite : aucun appel à un LLM."
+      "contexte": "Un dossier de crédit à évaluer seul, avec les bornes de référence fixées par la politique de crédit.",
+      "fichiers": {
+        "dossier": "crees/credit_dossier.csv"
+      }
     }
   ]
 }

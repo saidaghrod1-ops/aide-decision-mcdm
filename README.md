@@ -7,7 +7,6 @@ de chaque méthode, sur les exemples et exercices du cours et sur des jeux de do
 - **Classement des alternatives** : WSM, WPM, WASPAS, TOPSIS, VIKOR.
 - **Robustesse** : corrélation de Spearman, comparaison multi-méthodes, chaînage pondération → classement, sensibilité aux poids.
 - **Alternative unique** : MAUT, distance à l'idéal, choix du seuil de décision (courbe ROC), sur une même page.
-- **MCDM et IA** : de MCDM à la classification, SHAP comme pondération, MCDM dynamique (ARIMA), LLM extracteur de scores.
 - **Logique floue** : ensembles flous, nombres flous et intervalles, intuitionnistes, pythagoriciens, q-ROF, picturaux, hésitants.
 - **MCDM flou** : alternative unique floue, TOPSIS floue (Chen, 2000), TOPSIS intuitionniste.
 
@@ -22,7 +21,7 @@ Python 3.12 :
 python -m venv .venv
 .venv\Scripts\activate            # Windows  (source .venv/bin/activate sous Linux/macOS)
 pip install -r requirements-dev.txt
-pytest                             # 140 tests + 1 écart documenté avec le cours (E-1)
+pytest                             # 127 tests + 1 écart documenté avec le cours (E-1)
 streamlit run streamlit_app.py
 ```
 
@@ -38,7 +37,7 @@ streamlit run streamlit_app.py
 
 | Dossier | Rôle |
 |---|---|
-| `core/` | Calculs purs (numpy/scipy, scikit-learn et statsmodels pour l'IA), sans Streamlit ; chaque méthode retourne toutes ses matrices intermédiaires |
+| `core/` | Calculs purs (numpy/scipy), sans Streamlit ; chaque méthode retourne toutes ses matrices intermédiaires |
 | `ui/` | Composants Streamlit partagés (éditeurs de données, import/export CSV, graphiques Plotly) |
 | `pages/` | Une page par méthode ; navigation définie dans `streamlit_app.py` |
 | `data/` | `cours/` : exemples et exercices du cours, transcrits à l'identique ; `crees/` : jeux créés ; description dans `catalogue.json` |

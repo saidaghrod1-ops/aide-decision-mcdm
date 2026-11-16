@@ -176,97 +176,11 @@ def d5_credit() -> None:
     ecrire_tableau("credit_dossier.csv", ["critere", "sens", "unite", "poids", "valeur", "x_min", "x_max"],
                    [[c, s, u, float(w), float(v), float(a), float(b)] for c, s, u, w, v, a, b in
                     zip(CREDIT_CRITERES, CREDIT_SENS, CREDIT_UNITES, CREDIT_POIDS, dossier, CREDIT_MIN, CREDIT_MAX)])
-    rng = np.random.default_rng(2026)
-    n = 200
-    revenu = np.round(np.clip(rng.lognormal(np.log(13000), 0.45, n), 4000, 40000), -2)
-    endet = np.round(np.clip(rng.normal(25, 10, n), 0, 45), 1)
-    anciennete = np.round(np.clip(rng.gamma(2.0, 3.0, n), 0, 20), 1)
-    incidents = np.clip(rng.poisson(0.9, n), 0, 6)
-    apport = np.round(np.clip(rng.normal(15, 9, n), 0, 40), 1)
-    X = np.column_stack([revenu, endet, anciennete, incidents, apport])
-    s = np.array([1 if c == "+" else -1 for c in CREDIT_SENS])
-    lo, hi = np.array(CREDIT_MIN, float), np.array(CREDIT_MAX, float)
-    U = np.where(s > 0, (X - lo) / (hi - lo), (X - hi) / (lo - hi))
-    S = U @ np.array(CREDIT_POIDS)
-    proba = 1 / (1 + np.exp(-14 * (S - np.median(S))))
-    y = (rng.uniform(size=n) < proba).astype(int)
-    lignes = [[f"D{i + 1:03d}", *[float(v) for v in X[i]], "Accepter" if y[i] else "Rejeter"] for i in range(n)]
-    ecrire_tableau("credit_historique.csv", ["dossier", *CREDIT_CRITERES, "decision"], lignes)
-
-
-# ---------------------------------------------------------------- D6
-def d6_fournisseurs_historique() -> None:
-    rng = np.random.default_rng(91)
-    n = 300
-    qualite = np.round(rng.uniform(5, 10, n), 1)
-    prix = np.round(60 + 8 * qualite + rng.normal(0, 9, n), 0)
-    delai = np.round(rng.uniform(2, 25, n), 0)
-    rse = np.round(rng.uniform(30, 95, n), 0)
-    M = MatriceDecision(tuple(f"F{i + 1:03d}" for i in range(n)),
-                        ("C1 Qualité", "C2 Prix", "C3 Délai de livraison", "C4 Engagement RSE"),
-                        np.column_stack([qualite, prix, delai, rse]), np.array([1, -1, -1, 1]), None,
-                        ("/10", "DH/unité", "jours", "/100"))
-    ecrire("fournisseurs_historique.csv", matrice_vers_csv(M))
-
-
-# ---------------------------------------------------------------- D7
-def d7_series() -> None:
-    rng = np.random.default_rng(94)
-    T = 60
-    moyennes = {"A1 Action tech": (8.0, 0.25, 100.0), "A2 Action énergie": (6.0, 0.15, 80.0),
-                "A3 Action bancaire": (7.0, 0.20, 120.0)}
-    criteres = ["Rendement attendu r (%)", "Volatilité σ", "Liquidité L"]
-    bruits = (0.6, 0.02, 8.0)
-    lignes = []
-    for a, mus in moyennes.items():
-        for c, mu, sd in zip(criteres, mus, bruits):
-            x = np.empty(T); x[0] = mu
-            for t in range(1, T):
-                x[t] = mu + 0.6 * (x[t - 1] - mu) + rng.normal(0, sd)
-            x = np.round(x, 4 if c.startswith("Vol") else 2)
-            lignes += [[t + 1, a, c, float(x[t])] for t in range(T)]
-    ecrire_tableau("dynamique_series.csv", ["periode", "alternative", "critere", "valeur"], lignes)
-
-
-# ---------------------------------------------------------------- D8
-def d8_cv() -> None:
-    cvs = [
-        ("Candidat 1", "Ingénieur logiciel avec 7 ans d'expérience en développement Python et Java, management d'une "
-                       "équipe de 5 personnes, certifié PMP. Prétentions : 85 000 €/an.",
-         8, 7, 3, "7 ans en Python/Java, management d'équipe et certification PMP valorisent l'expérience",
-         "Management d'une équipe signalé mais pas de références externes ni d'exemples de communication",
-         "Prétentions à 85 k€ situées dans la fourchette haute du marché pour le poste visé"),
-        ("Candidat 2", "Développeuse backend, 4 ans d'expérience en Python et bases de données, contributrice open "
-                       "source, animatrice de meetups techniques. Prétentions : 58 000 €/an.",
-         6, 8, 7, "4 ans d'expérience ciblée, contributions open source vérifiables",
-         "Animation de meetups : prise de parole régulière devant un public technique",
-         "Prétentions dans la médiane du marché"),
-        ("Candidat 3", "Ingénieur junior, 1 an d'alternance en développement web (JavaScript, un peu de Python). "
-                       "Prétentions : 42 000 €/an.",
-         3, 5, 9, "Une seule année d'expérience, en alternance, peu de Python",
-         "Pas d'élément sur la communication hormis le travail en alternance",
-         "Prétentions basses pour le poste"),
-        ("Candidat 4", "Architecte logiciel, 12 ans d'expérience (Java, Python, cloud), a dirigé une équipe de 15 "
-                       "personnes, conférencier. Prétentions : 110 000 €/an.",
-         10, 9, 1, "12 ans d'expérience, architecture et cloud : profil très senior",
-         "Direction d'une équipe de 15 personnes et conférences : communication très démontrée",
-         "Prétentions nettement au-dessus de l'enveloppe du poste"),
-        ("Candidat 5", "Ingénieure logiciel, 5 ans d'expérience en Python (data et API), tutrice d'étudiants, "
-                       "certifiée Scrum Master. Prétentions : 65 000 €/an.",
-         7, 7, 6, "5 ans en Python sur des sujets data et API",
-         "Tutorat et rôle de Scrum Master : communication régulière en équipe",
-         "Prétentions légèrement au-dessus de la médiane"),
-    ]
-    ecrire_tableau("llm_cv_corpus.csv",
-                   ["candidat", "extrait_cv", "Expérience technique", "Communication / leadership",
-                    "Adéquation salariale (coût, score inversé)", "justification_experience",
-                    "justification_communication", "justification_salaire"],
-                   [list(c) for c in cvs])
 
 
 if __name__ == "__main__":
     etapes = {"D1": d1_selection_modele_ml, "D2": d2_fournisseurs, "D3": d3_ahp_hopital, "D4": d4_electrification,
-              "D5": d5_credit, "D6": d6_fournisseurs_historique, "D7": d7_series, "D8": d8_cv}
+              "D5": d5_credit}
     choix = sys.argv[1:] or list(etapes)
     for cle in choix:
         etapes[cle]()

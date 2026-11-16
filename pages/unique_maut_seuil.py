@@ -3,10 +3,9 @@ import pandas as pd
 import streamlit as st
 
 from core.alternative_unique.distance_ideal import distance_ideal
-from core.alternative_unique.maut import maut, scores_maut
-from core.alternative_unique.seuil import CRITERES, courbe_roc, indicateurs, seuil_optimal
+from core.alternative_unique.maut import maut
+from core.alternative_unique.seuil import courbe_roc, indicateurs
 from core.commun import ErreurMethode
-from core.donnees import chemin, dataset, lire_tableau_csv
 from ui import affichage as af
 from ui import graphiques as gr
 from ui.alternative_unique import editeur_dossier
@@ -27,7 +26,7 @@ with st.expander("Théorie", expanded=True):
 onglet1, onglet2 = st.tabs(["MAUT et distance à l'idéal", "Choix du seuil τ"])
 
 with onglet1:
-    st.caption("Jeu créé : un dossier de crédit et les bornes de référence fixées par la politique de crédit.")
+    st.caption("Exemple : un dossier de crédit et les bornes de référence fixées par la politique de crédit.")
     dossier = editeur_dossier("maut_dossier")
     if dossier is not None:
         tau = st.slider("Seuil τ", 0.0, 1.0, 0.7, 0.01)
@@ -47,7 +46,7 @@ with onglet1:
                 f"**{'acceptée' if r.accepte else 'rejetée'}** (classe {r.classe} : A si S ≥ 0,8, B si S ≥ 0,6, C sinon).")
 
 with onglet2:
-    st.subheader("Exemple du cours : 6 décisions passées")
+    st.caption("Exemple du cours : 6 décisions passées, trois seuils testés.")
     table = editeur_tableau("seuil_cours", charger_tableau("C8_decisions_passees_6", "tableau"),
                             colonnes_attendues=["alternative", "score", "decision"], nom_fichier="decisions.csv",
                             column_config={"decision": st.column_config.SelectboxColumn("decision", options=["Accepter", "Rejeter"])})
@@ -61,25 +60,6 @@ with onglet2:
     st.dataframe(pd.DataFrame([{"Cas": f"Cas {k + 1}", "Seuil τ": i.tau, "TPR": round(i.TPR, 2), "FPR": round(i.FPR, 2),
                                 "d": round(i.d, 2), "J": round(i.J, 2)} for k, i in enumerate(lignes)]), hide_index=True)
     st.caption("Cas 1 et 2 à égalité (d et J) : on les départage selon le coût d'un faux positif ou d'un faux négatif.")
-    points6 = courbe_roc(S6, y6)
-    gr.afficher(gr.roc([p.FPR for p in points6], [p.TPR for p in points6],
-                       {f"τ = {i.tau:g}": (i.FPR, i.TPR) for i in lignes}, "Courbe ROC"))
-
-    st.subheader("Historique de 200 dossiers de crédit (jeu créé)")
-    d = dataset("D5_credit")
-    _, lignes_h = lire_tableau_csv(chemin(d["fichiers"]["historique"]))
-    X = np.array([[float(v) for v in l[1:6]] for l in lignes_h])
-    y = np.array([l[6] == "Accepter" for l in lignes_h], int)
-    if dossier is None:
-        st.stop()
-    st.caption("Scores MAUT calculés avec les poids et les bornes du dossier de l'onglet précédent.")
-    S = scores_maut(X, dossier.xmin, dossier.xmax, dossier.sens, dossier.poids)
-    c1, c2 = st.columns(2)
-    c_fp = c1.number_input("Coût d'un faux positif", 0.0, 100.0, 5.0, 0.5)
-    c_fn = c2.number_input("Coût d'un faux négatif", 0.0, 100.0, 1.0, 0.5)
-    optima = {k: seuil_optimal(S, y, k, c_fp, c_fn)[0] for k in CRITERES}
-    st.dataframe(pd.DataFrame([{"Critère": CRITERES[k][0], "τ optimal": round(i.tau, 4), "TPR": round(i.TPR, 3),
-                                "FPR": round(i.FPR, 3)} for k, i in optima.items()]), hide_index=True)
-    points = courbe_roc(S, y, c_fp, c_fn)
+    points = courbe_roc(S6, y6)
     gr.afficher(gr.roc([p.FPR for p in points], [p.TPR for p in points],
-                       {CRITERES[k][0].split(" (")[0]: (i.FPR, i.TPR) for k, i in optima.items()}, "Courbe ROC de l'historique"))
+                       {f"τ = {i.tau:g}": (i.FPR, i.TPR) for i in lignes}, "Courbe ROC"))

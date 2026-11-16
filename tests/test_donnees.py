@@ -74,7 +74,6 @@ def test_bwm_fournisseur_p37_controles_du_cours():
     ("C5_topsis_voitures",
      [[7, 9, 9, 8], [8, 7, 8, 7], [9, 6, 8, 9], [6, 7, 8, 6]], [1, 1, 1, -1], [0.2, 0.1, 0.4, 0.3]),
     ("C6_vikor_machines", [[1, 3000], [2, 3750], [5, 4500]], [-1, 1], [0.5, 0.5]),
-    ("C13_dynamique_prevision", [[8, 0.25, 100], [6, 0.15, 80], [7, 0.20, 120]], [1, -1, 1], None),
 ])
 def test_matrices_du_cours_transcrites_exactement(identifiant, valeurs, sens, poids):
     M = lire_matrice_csv(chemin(dataset(identifiant)["fichiers"]["matrice"]))
