@@ -11,7 +11,7 @@ de chaque méthode, sur les exemples et exercices du cours et sur des jeux de do
 - **MCDM flou** : alternative unique floue, TOPSIS floue (Chen, 2000), TOPSIS intuitionniste.
 
 Interface en français ; notations, formules et conventions du cours ; aucune méthode hors cours.
-Le plan, l'inventaire du cours et **les écarts constatés avec le cours** (E-1 à E-32) sont dans [PLAN.md](PLAN.md).
+L'inventaire du cours, ses conventions et **les écarts constatés avec le cours** (E-1 à E-32) sont dans [NOTES_COURS.md](NOTES_COURS.md).
 
 ## Lancer l'application en local
 
@@ -62,7 +62,7 @@ M2,8,7,8,7
 
 ## Sources des données
 
-- Exemples et exercices du support de cours (pages citées dans chaque page et dans `data/catalogue.json`).
+- Exemples et exercices du support de cours (pages citées dans `data/catalogue.json`).
 - Matrice de portefeuille de Vuković et al. (2020), reproduite dans le cours (p. 18).
 - Exercice de TOPSIS floue de Chen (2000), reproduit dans le cours (p. 140–141).
 - Jeu « sélection de modèle ML » : mesures obtenues sur le jeu Breast Cancer Wisconsin inclus dans scikit-learn.
